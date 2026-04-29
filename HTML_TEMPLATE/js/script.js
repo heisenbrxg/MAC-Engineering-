@@ -26,18 +26,28 @@ Promise.all([
   });
       
 function initBannerVideo() {
-    function handleYouTubeErrors() {
-        window.addEventListener('message', function(event) {
-            if (event.origin !== 'https://www.youtube.com') return;
+    const videoUrl = "https://res.cloudinary.com/dwgwxdwif/video/upload/v1776679249/New_background_video_fgizww.mp4";
+    const banners = document.querySelectorAll('.banner-layout-wrapper, .banner-video-container');
+    
+    banners.forEach(banner => {
+        // Remove any existing video to avoid duplicates and ensure consistency
+        const existingVideos = banner.querySelectorAll('video');
+        existingVideos.forEach(v => v.remove());
+
+        const video = document.createElement('video');
+        video.src = videoUrl;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.classList.add('video-background');
         
-            try {
-                var data = JSON.parse(event.data);
-               
-            } catch (e) {
-     
-            }
-        });
-    }
+        // Ensure the banner has the necessary styles for the video background
+        banner.style.position = 'relative';
+        banner.style.overflow = 'hidden';
+        
+        banner.prepend(video);
+    });
 }
 
 function initThemeSwitch() {

@@ -1,0 +1,18 @@
+# Video files
+*.mov
+*.mp4
+*.m4v
+*.avi
+
+# Large files
+image/background video.mov
+image/New background video.mp4
+
+# Zip files
+*.zip
+*.tar.gz
+*.rar
+
+# OS files
+.DS_Store
+Thumbs.db
