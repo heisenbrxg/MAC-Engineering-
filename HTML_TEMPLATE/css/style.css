@@ -114,8 +114,8 @@
     --primary: #D1D1D1;
     --secondary: #000000;
     --text-color: #8B8B8B;
-    --text-color-2: var(--secondary); 
-    --accent-color: #a60405; 
+    --text-color-2: var(--secondary);
+    --accent-color: #a60405;
     --accent-color-2: #FFFFFF;
     --accent-color-3: #5c0001;
     --accent-color-4: #460001;
@@ -125,6 +125,11 @@
     --error-color: #e63946;
     --accent-transparent: #00000000;
     --accent-transparent-2: #00000073;
+    /* Blue accent — HVAC cooling blue */
+    --blue-color: #0077B6;
+    --blue-dark:  #005C8E;
+    --blue-light: #0077b625;
+    --blue-mid:   #0077b650;
     --box-shadow-top-left: -3px -3px 7px 0px rgba(166, 4, 5, 0.44);
     --box-shadow-bottom-right: 3px 3px 7px 0px rgba(166, 4, 5, 0.44);
     --box-shadow-top-left-wide: -3px -3px 10px 0px rgba(166, 4, 5, 0.44);
@@ -1578,7 +1583,7 @@ body.lightmode .title-heading{
 }
 
 .sub-heading i{
-    color: var(--accent-color);
+    color: var(--blue-color);
     font-size: var(--font-size-xl);
 }
 
@@ -2574,21 +2579,21 @@ body.lightmode .case-studies-content::before{
 }
 
 .case-studies-content.local-business{
-    background-image: url('../image/residential_split_ac.png');
+    background-image: url('../image/mac pdf images (1).png');
     width: 56.2%;
 }
 
 .case-studies-content.saas-leads{
-    background-image: url('../image/commercial_vrf.png');
+    background-image: url('../image/mac pdf images (9).png');
     width: 42%;
 }
 
 .case-studies-content.ecommerce{
-    background-image: url('../image/ducting_install.png');
+    background-image: url('../image/mac pdf images (16).png');
     width: 42%;
 }
 .case-studies-content.startup-branding{
-    background-image: url('../image/ventilation_sys.png');
+    background-image: url('../image/mac pdf images (18).png');
     width: 56.2%;
 }
 
@@ -2618,7 +2623,7 @@ body.lightmode .case-studies-content::before{
 }
 
 .cs-component:hover{
-    background-color: var(--accent-color);
+    background-color: var(--blue-color);
     transform: rotateZ(5deg);
 }
 
@@ -3377,6 +3382,22 @@ body.lightmode .card-testimonial-header-title{
     background-color: var(--accent-color-4);
 }
 
+.testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--blue-color);
+    flex-shrink: 0;
+}
+
+.profile-info {
+    color: var(--text-color);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    opacity: 0.65;
+}
+
 .card-testimonial{
     display: flex;
     flex-direction: column;
@@ -3550,8 +3571,8 @@ body.lightmode .newsletter-layout{
 
 .icon-circle {
     position: relative;
-    background-color: var(--accent-color);
-    color: var(--primary);
+    background-color: var(--blue-color);
+    color: var(--accent-color-2);
     font-size: var(--font-size-6xl);
     width: 59px;
     height: 59px;
@@ -5258,9 +5279,156 @@ body.lightmode .cta-service-banner::before{
     }
 }
 
+/* ====== Blue Accent Overrides ====== */
+
+/* Step numbers in the process section */
+.digital-process-step > div > span {
+    color: var(--blue-color);
+    font-size: var(--font-size-6xl);
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+/* Blue left border on testimonial cards */
+.card-testimonial {
+    border-left: 3px solid var(--blue-color) !important;
+}
+
+/* Blue top bar on the guide/CTA banner */
+.guide-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-color) 0%, var(--blue-dark) 100%);
+    z-index: 3;
+}
+
+/* Blue highlight on active nav link */
+.nav-link.active {
+    border-bottom: 2px solid var(--blue-color);
+}
+
+/* Blue glow on icon-circle on hover */
+.icon-circle:hover {
+    background-color: var(--blue-dark);
+    box-shadow: 0 0 0 4px var(--blue-light);
+}
+
+/* Blue accent on the card-about counter number */
+.card-about .counter {
+    color: var(--blue-color) !important;
+}
+
+/* Blue border-bottom on section headings */
+.title-heading::after {
+    background-color: var(--blue-color);
+}
+
+/* Blue glow for expertise card */
+.card-expertise {
+    border-left: 3px solid var(--blue-color);
+}
+
+/* Lightmode overrides for blue elements */
+body.lightmode .sub-heading i {
+    color: var(--blue-dark);
+}
+body.lightmode .project-card-badge {
+    background: var(--blue-dark);
+}
+body.lightmode .testimonial-avatar {
+    border-color: var(--blue-dark);
+}
+body.lightmode .card-testimonial {
+    border-left-color: var(--blue-dark) !important;
+}
+body.lightmode .card-about .counter {
+    color: var(--blue-dark) !important;
+}
+body.lightmode .icon-circle {
+    background-color: var(--blue-dark);
+}
+
 /* Make line-art icons white globally */
 img[src*="Icon-"],
 img[src*="icon-1.png"],
 img[src*="digital-marketing-icons"] {
     filter: brightness(0) invert(1) !important;
+}
+
+/* Testimonial Grid */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+@media (max-width: 767px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Project Gallery */
+.project-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.project-card {
+    position: relative;
+    min-height: 240px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.82) 100%);
+    z-index: 1;
+}
+.project-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 18px 16px;
+    z-index: 2;
+}
+.project-card-badge {
+    display: inline-block;
+    background: var(--blue-color);
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.project-card-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+@media (max-width: 1199px) {
+    .project-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 575px) {
+    .project-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card {
+        min-height: 200px;
+    }
 }
